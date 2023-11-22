@@ -1,0 +1,2 @@
+[workspace]
+members = ["apio", "apio-plugin", "apio-plugin/example"]
