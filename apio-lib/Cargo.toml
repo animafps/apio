@@ -1,12 +1,11 @@
 [package]
-name = "apio"
+name = "apio-lib"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-clap = { version = "4.4.8", features = ["derive"] }
-y4m = "0.8.0"
-apio-lib = {path = "../apio-lib"}
-walkdir = "2.4.0"
+libloading = "0.8.1"
+log = "0.4.20"
+apio-plugin = {path= "../apio-plugin"}

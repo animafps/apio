@@ -54,10 +54,19 @@ dependencies = [
 name = "apio"
 version = "0.1.0"
 dependencies = [
- "apio-plugin",
+ "apio-lib",
  "clap",
  "walkdir",
  "y4m",
+]
+
+[[package]]
+name = "apio-lib"
+version = "0.1.0"
+dependencies = [
+ "apio-plugin",
+ "libloading",
+ "log",
 ]
 
 [[package]]

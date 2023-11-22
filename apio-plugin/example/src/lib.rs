@@ -8,7 +8,7 @@ impl Plugin for ExamplePlugin {
         "Example"
     }
 
-    fn get_frame(&self, frame: apio_plugin::Frame, frame_ctx: apio_plugin::FrameContext) -> Vec<apio_plugin::Frame> {
+    fn get_frame(&self, _frame: apio_plugin::Frame, _frame_ctx: apio_plugin::FrameContext) -> Vec<apio_plugin::Frame> {
         vec![Frame::new([&[],&[],&[]], None)]
     }
 }

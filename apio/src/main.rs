@@ -1,6 +1,5 @@
 use std::fs::File;
-
-use apio_plugin::PluginManager;
+use apio_lib::{PluginManager, FrameContext};
 use clap::Parser;
 use walkdir::WalkDir;
 use y4m::decode;
@@ -12,7 +11,7 @@ fn main() -> Result<(),&'static str> {
         return Err("input not y4m");
     }
     let input = File::open(cli.input).unwrap();
-    let indecoder = decode(input).unwrap();
+    let mut decoder = decode(input).unwrap();
     let mut plugin_manager = PluginManager::new();
     let lib_path = option_env!("APIOLIBPATH").or_else(|| {
         return Some("/usr/lib/apio")
@@ -24,6 +23,7 @@ fn main() -> Result<(),&'static str> {
             unsafe { plugin_manager.load_plugin(entry.path()) }.unwrap();
         }
     }
-    let example = &plugin_manager.plugins[0];
+    let _example = &plugin_manager.get_plugins()[0];
+    let _frame = decoder.read_frame().unwrap();
     Ok(())
 }

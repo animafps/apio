@@ -25,13 +25,14 @@ Main thing to integrate and make posible but not limited to:
 
 - Holds the main runtime code
 - Main plugins nested
+- executable
 
 ### apio-plugin
 
 - Api for plugins
 - Plugin helpers/macros
 
-### Lib (maybe)
+### Lib
 
 - api/ffi for runtime
 - describes filter graph dynamics and process
