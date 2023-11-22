@@ -1,6 +1,5 @@
-use std::{ffi::OsStr, io::Read};
 use std::any::Any;
-use y4m::{Colorspace, Ratio, Decoder};
+use y4m::{Colorspace, Ratio};
 pub use y4m::Frame;
 
 pub trait Plugin: Any + Send + Sync {

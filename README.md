@@ -5,6 +5,8 @@ A video processing workflow framework with plugable filters and a dynamic filter
 
 Think gstreamer simplified for processing on the raw frames only with first class Rust, C support for plugins
 
+As well for every component to be modular and indepentent of each other except for the executeable part which is opionated by design
+
 With backwards compatibility with vs plugins (stretch goal)
 
 ## Motovation

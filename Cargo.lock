@@ -67,14 +67,13 @@ dependencies = [
  "apio-plugin",
  "libloading",
  "log",
+ "y4m",
 ]
 
 [[package]]
 name = "apio-plugin"
 version = "0.1.0"
 dependencies = [
- "libloading",
- "log",
  "y4m",
 ]
 

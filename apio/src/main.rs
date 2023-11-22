@@ -1,5 +1,5 @@
 use std::fs::File;
-use apio_lib::{PluginManager, FrameContext};
+use apio_lib::PluginManager;
 use clap::Parser;
 use walkdir::WalkDir;
 use y4m::decode;
@@ -14,7 +14,7 @@ fn main() -> Result<(),&'static str> {
     let mut decoder = decode(input).unwrap();
     let mut plugin_manager = PluginManager::new();
     let lib_path = option_env!("APIOLIBPATH").or_else(|| {
-        return Some("/usr/lib/apio")
+        Some("/usr/lib/apio")
     }).unwrap();
     for entry in WalkDir::new(lib_path).follow_links(true).min_depth(1) {
         let entry = entry.unwrap();

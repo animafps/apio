@@ -1,7 +1,7 @@
 use std::ffi::OsStr;
 use libloading::{Library, Symbol};
 use log::*;
-pub use apio_plugin::*;
+use apio_plugin::*;
 
 pub struct PluginManager {
     plugins: Vec<Box<dyn Plugin>>,
@@ -20,6 +20,10 @@ impl PluginManager {
         &self.plugins
     }
 
+    /// # Safety
+    /// Execution of extenal code `_plugin_create` symbol
+    /// 
+    /// Must trust code and ensure it is memory safe
     pub unsafe fn load_plugin<P: AsRef<OsStr>>(&mut self, filename: P) -> Result<(),PluginLoadError> {
         type PluginCreate = unsafe fn() -> *mut dyn Plugin;
 
@@ -63,6 +67,12 @@ impl Drop for PluginManager {
         if !self.plugins.is_empty() || !self.loaded_libraries.is_empty() {
             self.unload();
         }
+    }
+}
+
+impl Default for PluginManager {
+    fn default() -> Self {
+        Self::new()
     }
 }
 

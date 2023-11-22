@@ -9,3 +9,4 @@ edition = "2021"
 libloading = "0.8.1"
 log = "0.4.20"
 apio-plugin = {path= "../apio-plugin"}
+y4m = "0.8.0"
