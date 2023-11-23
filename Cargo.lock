@@ -55,6 +55,7 @@ name = "apio"
 version = "0.1.0"
 dependencies = [
  "apio-lib",
+ "apio-plugin",
  "clap",
  "walkdir",
  "y4m",

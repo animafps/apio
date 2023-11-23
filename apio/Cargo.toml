@@ -9,4 +9,5 @@ edition = "2021"
 clap = { version = "4.4.8", features = ["derive"] }
 y4m = "0.8.0"
 apio-lib = {path = "../apio-lib"}
+apio-plugin = {path = "../apio-plugin"}
 walkdir = "2.4.0"

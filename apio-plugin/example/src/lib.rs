@@ -5,11 +5,11 @@ struct ExamplePlugin;
 
 impl Plugin for ExamplePlugin {
     fn name(&self) -> &'static str {
-        "Example"
+        "example"
     }
 
-    fn get_frame(&self, _frame: apio_plugin::Frame, _frame_ctx: apio_plugin::FrameContext) -> Vec<apio_plugin::Frame> {
-        vec![Frame::new([&[],&[],&[]], None)]
+    fn get_frame(&self, frame: &Frame, args: &Option<&str>) -> Vec<&Frame> {
+        todo!()
     }
 }
 

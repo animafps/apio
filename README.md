@@ -38,3 +38,32 @@ Main thing to integrate and make posible but not limited to:
 
 - api/ffi for runtime
 - describes filter graph dynamics and process
+
+
+## Filter Graph
+
+
+```
+[input] --> filter --> [output]
+```
+
+```
+[input] --> splitfilter [pad1,pad2] --> [pad1]
+                                 |
+                                 |
+                                 + --> [pad2] 
+```
+
+```
+"filter[pad1];[pad2]filter2
+
+[input] --> filter[unnamed output pad] --> [unnamed inputpad]filter2 --> [output]
+                       |
+                       |
+                       + 
+```
+
+- if there is no connection of the named pads, will connect to the next filter defined
+- like that if there is a connection there is no default pads defined
+- the filter graph must be complete (there exists a complete path from input to output)
+- the input and output are special filters with no input or output pads respectfuly 
