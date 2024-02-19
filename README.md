@@ -3,7 +3,7 @@
 
 A video processing workflow framework with plugable filters and a dynamic filter graph
 
-Think gstreamer simplified for processing on the raw frames only with first class Rust, C support for plugins
+Think ffmpeg's filter system for processing on the raw frames only with first class Rust, C support for plugins
 
 As well for every component to be modular and indepentent of each other except for the executeable part which is opionated by design
 
@@ -44,26 +44,9 @@ Main thing to integrate and make posible but not limited to:
 
 
 ```
-[input] --> filter --> [output]
+Video Input[video,audio] --> [video]filter[video] ----------------------------->+ [audio,video]Output
+                         +                                                      |
+                         |                                                      |
+                         +-> [audio]filter[audio1] ->+[audio1,audio2]mix[audio]-+
+Audio Input[audio2] ---------------------------------+
 ```
-
-```
-[input] --> splitfilter [pad1,pad2] --> [pad1]
-                                 |
-                                 |
-                                 + --> [pad2] 
-```
-
-```
-"filter[pad1];[pad2]filter2
-
-[input] --> filter[unnamed output pad] --> [unnamed inputpad]filter2 --> [output]
-                       |
-                       |
-                       + 
-```
-
-- if there is no connection of the named pads, will connect to the next filter defined
-- like that if there is a connection there is no default pads defined
-- the filter graph must be complete (there exists a complete path from input to output)
-- the input and output are special filters with no input or output pads respectfuly 
